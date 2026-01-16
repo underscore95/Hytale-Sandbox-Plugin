@@ -12,7 +12,7 @@
   ],
   "Website": "https://your-plugin-website.com",
   "ServerVersion": "*",
-  "Dependencies": { "Buuz135:MultipleHUD": ">=1.0.1" },
+  "Dependencies": {},
   "OptionalDependencies": {},
   "DisabledByDefault": false,
   "Main": "dev.hytalemodding.ExamplePlugin",

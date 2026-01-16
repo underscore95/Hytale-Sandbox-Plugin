@@ -1,0 +1,20 @@
+$Common = "Common.ui";
+
+@MyTex = PatchStyle(TexturePath: "MyBackground.png");
+
+Group {
+  LayoutMode: Center;
+
+  Group #MyPanel {
+    Background: @MyTex;
+    Anchor: (Width: 400, Height: 400);
+    LayoutMode: Top;
+
+    Label #MyLabel {
+      Style: (FontSize: 32, Alignment: Center);
+      Anchor: (Top: 50);
+      Text: "MyText";
+      Padding: (Full: 10);
+    }
+  }
+}

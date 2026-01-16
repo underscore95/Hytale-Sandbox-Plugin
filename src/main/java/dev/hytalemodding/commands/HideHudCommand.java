@@ -1,16 +1,17 @@
 package dev.hytalemodding.commands;
 
+import com.buuz135.mhud.MultipleHUD;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.server.core.Message;
 import com.hypixel.hytale.server.core.command.system.CommandContext;
 import com.hypixel.hytale.server.core.command.system.basecommands.AbstractPlayerCommand;
 import com.hypixel.hytale.server.core.entity.entities.Player;
-import com.hypixel.hytale.server.core.entity.entities.player.hud.CustomUIHud;
-import com.hypixel.hytale.server.core.ui.builder.UICommandBuilder;
 import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
+import dev.hytalemodding.ui.MyHUD;
+import dev.hytalemodding.ui.MyHUD2;
 
 import javax.annotation.Nonnull;
 import java.util.concurrent.CompletableFuture;
@@ -26,12 +27,8 @@ public class HideHudCommand extends AbstractPlayerCommand {
         Player player = commandContext.senderAs(Player.class);
 
         CompletableFuture.runAsync(() -> {
-            player.getHudManager().setCustomHud(playerRef, new CustomUIHud(playerRef) {
-                @Override
-                protected void build(@Nonnull UICommandBuilder uiCommandBuilder) {
-
-                }
-            });
+            MultipleHUD.getInstance().hideCustomHud(player, playerRef, MyHUD.ID);
+            MultipleHUD.getInstance().hideCustomHud(player, playerRef, MyHUD2.ID);
             playerRef.sendMessage(Message.raw("UI HUD Hidden"));
         }, world);
     }

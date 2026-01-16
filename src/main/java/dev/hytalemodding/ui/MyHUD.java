@@ -9,6 +9,8 @@ import javax.annotation.Nonnull;
 
 public class MyHUD extends CustomUIHud {
 
+    public static final String ID = "ExamplePlugin:hud1";
+
     public MyHUD(@Nonnull PlayerRef playerRef) {
         super(playerRef);
     }

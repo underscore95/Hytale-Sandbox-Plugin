@@ -1,5 +1,6 @@
 package dev.hytalemodding.commands;
 
+import com.buuz135.mhud.MultipleHUD;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.server.core.Message;
@@ -10,6 +11,7 @@ import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import dev.hytalemodding.ui.MyHUD;
+import dev.hytalemodding.ui.MyHUD2;
 
 import javax.annotation.Nonnull;
 import java.util.concurrent.CompletableFuture;
@@ -25,8 +27,8 @@ public class ShowHudCommand extends AbstractPlayerCommand {
         Player player = commandContext.senderAs(Player.class);
 
         CompletableFuture.runAsync(() -> {
-            player.getHudManager().setCustomHud(playerRef, new MyHUD(playerRef));
-
+            MultipleHUD.getInstance().setCustomHud(player, playerRef, MyHUD.ID, new MyHUD(playerRef));
+            MultipleHUD.getInstance().setCustomHud(player, playerRef, MyHUD2.ID, new MyHUD2(playerRef));
             playerRef.sendMessage(Message.raw("UI HUD Shown"));
         }, world);
     }

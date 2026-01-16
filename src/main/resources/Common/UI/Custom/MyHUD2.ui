@@ -1,0 +1,9 @@
+Group {
+  LayoutMode: Center;
+
+  Group #MyPanel {
+    Background: #FF0000(0.2);
+    Anchor: (Width: 100, Height: 100, Left: 400, Top: 400);
+    LayoutMode: Top;
+  }
+}

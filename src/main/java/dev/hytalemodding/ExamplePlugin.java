@@ -1,10 +1,11 @@
 package dev.hytalemodding;
 
+import com.hypixel.hytale.server.core.Message;
 import com.hypixel.hytale.server.core.event.events.player.PlayerReadyEvent;
 import com.hypixel.hytale.server.core.plugin.JavaPlugin;
 import com.hypixel.hytale.server.core.plugin.JavaPluginInit;
-import dev.hytalemodding.commands.ExampleCommand;
-import dev.hytalemodding.events.OpenGuiListener;
+import dev.hytalemodding.events.MyListener;
+import dev.hytalemodding.events.PlayerMineSystem;
 
 import javax.annotation.Nonnull;
 
@@ -16,8 +17,14 @@ public class ExamplePlugin extends JavaPlugin {
 
     @Override
     protected void setup() {
-        this.getEventRegistry().registerGlobal(PlayerReadyEvent.class, OpenGuiListener::openGui);
 
-        this.getCommandRegistry().registerCommand(new ExampleCommand("example", "Example command"));
+        // Normal events
+        getEventRegistry().registerGlobal(PlayerReadyEvent.class, MyListener::openGui);
+        getEventRegistry().registerGlobal(PlayerReadyEvent.class, event -> {
+            event.getPlayer().sendMessage(Message.raw("Hi there!"));
+        });
+
+        // ECS Events
+        getEntityStoreRegistry().registerSystem(new PlayerMineSystem());
     }
 }

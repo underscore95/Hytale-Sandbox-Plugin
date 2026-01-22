@@ -42,7 +42,10 @@
     </build>
 
     <repositories>
-        
+        <repository>
+            <id>cursemaven</id>
+            <url>https://www.cursemaven.com</url>
+        </repository>
     </repositories>
 
     <dependencies>
@@ -59,6 +62,12 @@
             <artifactId>lombok</artifactId>
             <version>1.18.42</version>
             <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>curse.maven</groupId>
+            <artifactId>hyui-1431415</artifactId>
+            <version>7505670</version>
         </dependency>
     </dependencies>
 

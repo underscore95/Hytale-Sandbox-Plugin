@@ -12,7 +12,9 @@
   ],
   "Website": "https://your-plugin-website.com",
   "ServerVersion": "*",
-  "Dependencies": {},
+  "Dependencies": {
+    "Ellie:HyUI":  "*"
+  },
   "OptionalDependencies": {},
   "DisabledByDefault": false,
   "Main": "dev.hytalemodding.ExamplePlugin",

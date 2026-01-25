@@ -1,4 +1,4 @@
-$Common = "Common.ui";
+$C = "Common.ui";
 
 @MyTex = PatchStyle(TexturePath: "MyBackground.png");
 
@@ -10,18 +10,14 @@ Group {
     Anchor: (Width: 800, Height: 1000);
     LayoutMode: Top;
 
-    Label #MyLabel {
-      Style: (FontSize: 32, Alignment: Center);
-      Anchor: (Top: 50);
-      Text: "MyText";
-      Padding: (Full: 10);
+    $C.@TextButton #Button1 {
+        Anchor: (Width: 200, Height: 100);
+        Text: "Button 1";
     }
 
-    TextField #MyInput {
-      Style: $Common.@DefaultInputFieldStyle;
-      Background: $Common.@InputBoxBackground;
-      Anchor: (Top: 10, Width: 200, Height: 50);
-      Padding: (Full: 10);
+    $C.@TextButton #Button2 {
+        Anchor: (Width: 200, Height: 100);
+        Text: "Button 2";
     }
   }
 }

@@ -34,7 +34,6 @@ public class MyUI extends InteractiveCustomUIPage<MyUI.Data> {
 
         uiEventBuilder.addEventBinding(CustomUIEventBindingType.Activating, "#Button1", EventData.of("ClickedButton", BUTTON1_ID), false);
         uiEventBuilder.addEventBinding(CustomUIEventBindingType.Activating, "#Button2", EventData.of("ClickedButton", BUTTON2_ID), false);
-
     }
 
     @Override
@@ -49,7 +48,7 @@ public class MyUI extends InteractiveCustomUIPage<MyUI.Data> {
 
     public static class Data {
         public static final BuilderCodec<Data> CODEC = BuilderCodec.builder(Data.class, Data::new)
-                .append(new KeyedCodec<>("ClickedButton", Codec.STRING), (data, s) -> data.clickedButton = s, choicePageEventData -> choicePageEventData.clickedButton).add()
+                .append(new KeyedCodec<>("ClickedButton", Codec.STRING), (data, s) -> data.clickedButton = s, data -> data.clickedButton).add()
                 .build();
 
         private String clickedButton;
